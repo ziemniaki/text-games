@@ -1,0 +1,62 @@
+import sys
+
+def intro():
+    print("Welcome to the game of Musical Virtue,\nIn which you'll learn what choices you should pursue.\nYour journey as a composer is about to unfold,\nSo be wise and stay humble, as the story is told.")
+
+def choice_a():
+    print("\nA magical piano stands before your eyes,\nDo you choose to play it, or go for a prize?")
+    choice = input("Enter 'play' or 'prize': ").lower()
+    if choice == 'play':
+        choice_b()
+    elif choice == 'prize':
+        lose()
+    else:
+        print("Invalid choice, try again.")
+        choice_a()
+
+def choice_b():
+    print("\nYou've played a melody that warmed every heart,\nBut now, to continue, from which door do you part?")
+    choice = input("Enter 'left' or 'right': ").lower()
+    if choice == 'left':
+        choice_c()
+    elif choice == 'right':
+        lose()
+    else:
+        print("Invalid choice, try again.")
+        choice_b()
+
+def choice_c():
+    print("\nIn a room full of instruments, you have the key,\nTo unlock their potential, which one will it be?")
+    choice = input("Enter 'violin' or 'trumpet': ").lower()
+    if choice == 'violin':
+        win()
+    elif choice == 'trumpet':
+        lose()
+    else:
+        print("Invalid choice, try again.")
+        choice_c()
+
+def win():
+    print("\nCongratulations, my friend, you've followed your heart,\nA true composer you've become, a master of the art.\nYour choices reflect wisdom, virtue, and grace,\nNow go forth and share your music, filling every space.")
+
+def lose():
+    print("\nAlas, you've strayed away from the virtuous path,\nYour choices driven by ego, greed, and wrath.\nBut fear not, dear composer, it's not the end,\nYou can start anew, and your ways amend.")
+    restart()
+
+def restart():
+    choice = input("Would you like to try again? Enter 'yes' or 'no': ").lower()
+    if choice == 'yes':
+        intro()
+        choice_a()
+    elif choice == 'no':
+        sys.exit()
+    else:
+        print("Invalid choice, try again.")
+        restart()
+
+def main():
+    intro()
+    choice_a()
+
+if __name__ == "__main__":
+    main()
