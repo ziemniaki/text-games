@@ -1,0 +1,76 @@
+python3
+
+import sys
+import time
+
+def display_text(text, delay=0.05):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
+
+def intro():
+    display_text("Welcome to the Adventure Game!")
+    display_text("You find yourself in front of two paths, one leads to the forest and the other to the mountains.")
+    display_text("Choose your path by entering 'forest' or 'mountains'.")
+    choice = input("> ").lower()
+    if choice == "forest":
+        forest()
+    elif choice == "mountains":
+        mountains()
+    else:
+        display_text("Invalid input! Please try again.")
+        intro()
+
+def forest():
+    display_text("You have entered the forest.")
+    display_text("You see a beautiful waterfall and a dark cave.")
+    display_text("Enter 'waterfall' to explore it, or 'cave' to explore the cave.")
+    choice = input("> ").lower()
+    if choice == "waterfall":
+        waterfall()
+    elif choice == "cave":
+        cave()
+    else:
+        display_text("Invalid input! Please try again.")
+        forest()
+
+def mountains():
+    display_text("You have entered the mountains.")
+    display_text("You see a narrow bridge and a steep cliff.")
+    display_text("Enter 'bridge' to cross it, or 'cliff' to climb the cliff.")
+    choice = input("> ").lower()
+    if choice == "bridge":
+        bridge()
+    elif choice == "cliff":
+        cliff()
+    else:
+        display_text("Invalid input! Please try again.")
+        mountains()
+
+def waterfall():
+    display_text("You have reached the waterfall.")
+    display_text("You find a hidden treasure chest behind the waterfall!")
+    display_text("Congratulations! You have won the game!")
+    exit()
+
+def cave():
+    display_text("You have entered the cave.")
+    display_text("Unfortunately, the cave is inhabited by a ferocious dragon.")
+    display_text("You have been defeated! Game over.")
+    exit()
+
+def bridge():
+    display_text("You have crossed the bridge.")
+    display_text("On the other side, you find a wise old man.")
+    display_text("He tells you that the treasure is hidden behind the waterfall in the forest.")
+    display_text("You return to the starting point.")
+    intro()
+
+def cliff():
+    display_text("You have climbed the steep cliff.")
+    display_text("Unfortunately, you slipped and fell to your death. Game over.")
+    exit()
+
+intro()
